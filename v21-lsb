@@ -9,7 +9,17 @@ end
 remote.OnServerEvent:Connect(function(plr,f)
 	if f == "FunnyRig" then
 		owner.Character.Humanoid:Destroy()
-		Instance.new("Humanoid",owner,Character).DisplayName = owner.DisplayName
+		Instance.new("Humanoid",owner.Character).DisplayName = owner.DisplayName
+	end
+end)
+
+local rs = game:GetService("RunService")
+rs.PostSimulation:Connect(function()
+	local c = owner.Character
+	for i,v in pairs(c:GetChildren()) do
+		if v:IsA("BasePart") and not v.Anchored then
+			v:SetNetworkOwner(owner)
+		end
 	end
 end)
 
