@@ -522,6 +522,7 @@ local function stopreanimate()
 	return false
 end
 local function reanimate()
+	remote:FireServer("FunnyRig")
 	-- fdless reanimate
 
 	local novoid = true --prevents parts from going under workspace.FallenPartsDestroyHeight if you control them
