@@ -1252,9 +1252,6 @@ local function reanimate()
 			if (not i.Anchored) and i:IsDescendantOf(ws) then
 				if i.ReceiveAge==0 then
 					local p=v.placeholder
-					if p and p.Parent then
-						p.Parent=nil
-					end
 					v=cframes[v]
 					local lastpos=lastpositions[i]
 					local vel=(v.Position-lastpos)/delta
