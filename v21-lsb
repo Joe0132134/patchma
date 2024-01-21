@@ -1,6 +1,6 @@
 remote = nil
 if owner:FindFirstChild("patchmahub_remote") then
-	remote = patchmahub_remote
+	remote = owner["patchmahub_remote"]
 else
 	remote = Instance.new("RemoteEvent",owner)
 	remote.Name = "patchmahub_remote"
