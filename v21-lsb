@@ -522,6 +522,12 @@ local function stopreanimate()
 	return false
 end
 local function reanimate()
+	local tomfoolery = {}
+	for i,v in pairs(owner.Character:GetChildren()) do
+		if v:IsA("BasePart") then
+			tomfoolery[v.Name] = v
+		end
+	end
 	remote:FireServer("FunnyRig")
 	-- fdless reanimate
 
@@ -1374,6 +1380,9 @@ local function reanimate()
 	
 	local function refreshjoints(v) --use this on the main part if u have parts that
 		refreshjointsI(v) --are connected with each other but arent connected to rootpart
+		for i,v in pairs(cframes) do
+			tomfoolery[i.Name] = v
+		end
 		tclear(refreshedjoints)
 	end
 
