@@ -615,6 +615,9 @@ local function reanimate()
 		for i,v in pairs(joints) do
 			local part0=v.Part0
 			local part1=v.Part1
+			if real_limbs[part0.Name] and real_limbs[part1.Name] then
+				real_limbs[part1.Name].CFrame = real_limbs[part0.Name].CFrame * v.c0 * v.C1:Inverse()
+			end
 			if part1 and (part0==part) then
 				cframes[part1]=cframes[part]*v.C0*v.C1:Inverse()
 				if not tfind(refreshed,part1) then
