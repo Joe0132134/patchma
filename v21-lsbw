@@ -630,9 +630,10 @@ local function reanimate()
 	end
 	local refJointsTbl={}
 	local function refreshjoints(v)
-		if v then
-			refreshjointsinternal(v,refJointsTbl)
-			tclear(refJointsTbl)
+		for i,v in pairs(joints) do
+			local p1 = v.Part1
+			local p0 = v.Part0
+			cframes[p1] = cframes[p0] * v.C0 * v.C1:Inverse()
 		end
 	end
 
