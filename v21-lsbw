@@ -626,6 +626,7 @@ local function reanimate()
 	for i,v in pairs(R6parts) do
 		cframes[v]=cfr
 	end
+	
 	local joints={
 		{
 			Name="Neck",
@@ -1443,7 +1444,7 @@ local function reanimate()
 	local function getVel() --returns character velocity
 		return xzvel+v3_010*Yvel --important: use only in lerps or it might not work
 	end
-	
+	print(cframes)
 	return {
 		cframes=cframes,
 		joints=joints,
